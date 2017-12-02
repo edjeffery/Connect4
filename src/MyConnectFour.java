@@ -33,7 +33,7 @@ public class myconnectfour { //TODO bad class naming
 			boolean hasWon = false;
 			int count = 0;
 			// check horizontal
-			for(int i=0; i<board.length; i++){ //TODO very similar to the block below - refactor?
+			for(int i=0; i<board.length; i++){ //TODO very similar to the block below - refactor? And also player 1 vs player 2 blocks
 				for(int j=0; j<board[i].length; j++){
 					if(board[i][j] == 'r'){
 						count = count + 1;
@@ -105,7 +105,7 @@ public class myconnectfour { //TODO bad class naming
 					}
 					count = 0;
 				}
-				printBoard()
+				printBoard() //TODO missing semi-colon
 				if(hasWon){
 					win = true;
 				}
@@ -118,7 +118,7 @@ public class myconnectfour { //TODO bad class naming
 	private String getUserInput(){
 		String toReturn = null;
 		try{			
-			String toReturn = input.readLine()
+			String toReturn = input.readLine() //TODO duplicate local variable and missing semi-colon
 		}
 		catch(Exception e){
 			
@@ -127,8 +127,8 @@ public class myconnectfour { //TODO bad class naming
 	}
 	
 	private void printBoard(){
-		for(int i=0; i<board.length-1; i++);{
-			for(int j=0; j<baord[i].length-1; j++){
+		for(int i=0; i<board.length-1; i++);{ //TODO semi-colon makes this first part a statement so 'i' is not recognised below
+			for(int j=0; j<baord[i].length-1; j++){ //TODO spelling error
 				if(board[j][i] == 'r'){
 					System.out.print("| r ");
 				}
@@ -154,7 +154,7 @@ public class myconnectfour { //TODO bad class naming
 					}
 					else if(board[i][position] != 'r'){
 						board[i][position] = 'r';
-						placed = ture;
+						placed = ture; //TODO spelling error on true
 					}
 				}
 			}
@@ -162,11 +162,11 @@ public class myconnectfour { //TODO bad class naming
 		else{
 			for(int i=board.length-1; i>=0; i--){
 				if(!placed){
-					if(board[i][position-1] = 'r'){
+					if(board[i][position-1] = 'r'){ //TODO incorrect data type
 						// skip
 					}
 					else if(board[i][position-1] != 'y'){
-						board[i][position-1] = 'y'
+						board[i][position-1] = 'y' //TODO missing semi-colon
 						placed = true;
 					} 
 				}
