@@ -1,17 +1,17 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class myconnectfour {
+public class myconnectfour { //TODO bad class naming
 	
 	public static void main(String[] args){
 		new MyConnectFour();
 	}
 	
-	private BufferedReader input;
+	private BufferedReader input; //TODO Good practice to put variables at start of class
 	private char[][] board;
 	
 	public MyConnectFour(){
-		board = new char[6][7];
+		board = new char[6][7]; //TODO Check char 2D arrays
 		input = new BufferedReader(new InputStreamReader(System.in));
 		playGame();
 	}
@@ -20,20 +20,20 @@ public class myconnectfour {
 		System.out.println("Welcome to Connect 4");
 		System.out.println("There are 2 players red and yellow");
 		System.out.println("Player 1 is Red, Player 2 is Yellow");
-		System.out.println("To play the game type in the number of the column you want to drop you counter in") 
+		System.out.println("To play the game type in the number of the column you want to drop you counter in") //TODO missing semi-colon
 		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
 		printBoard();
 		boolean win = false;
 		while(!win){
 			// player 1
-			String userInput = getuserInput();
+			String userInput = getuserInput(); //TODO no camel case
 			int move = Integer.parseInt(userInput);
-			placeCounter('r',userInput);
+			placeCounter('r',userInput); //TODO takes wrong data types
 			boolean hasWon = false;
 			int count = 0;
 			// check horizontal
-			for(int i=0; i<board.length; i++){
+			for(int i=0; i<board.length; i++){ //TODO very similar to the block below - refactor?
 				for(int j=0; j<board[i].length; j++){
 					if(board[i][j] == 'r'){
 						count = count + 1;
