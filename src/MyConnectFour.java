@@ -143,7 +143,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 			}
 			System.out.println("|");
 		}
-		System.out.println("  1   2   3   4   5   6   7");
+		System.out.println("  1   2   3   4   5   6  "); //TODO Remove the number 7 as not possible to place a piece there. DONE
 	}
 	
 	private void placeCounter(char player, int position){
