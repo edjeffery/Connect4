@@ -53,7 +53,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 				for(int j=0; j<board[i].length; j++){ //TODO using column length rather than row DONE
 					if(board[i][j] == 'r'){ //TODO i and j the wrong way around DONE
 						count = count + 1;
-						if(count > 4){
+						if(count >= 4){ //TODO replace with >= DONE
 							hasWon = true;
 						}
 					}
@@ -66,6 +66,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 			printBoard();
 			if(hasWon){
 				win = true;
+				System.out.println("You Have Won!!!");
 			}
 			else{
 				//player 2
@@ -108,9 +109,10 @@ public class MyConnectFour { //TODO bad class naming DONE
 				printBoard(); //TODO missing semi-colon DONE
 				if(hasWon){
 					win = true;
+					System.out.println("You Have Won!!!");
 				}
 			}
-			System.out.println("You Have Won!!!"); //TODO move this statement
+			//System.out.println("You Have Won!!!"); //TODO move this statement DONE
 		}
 		
 	}
