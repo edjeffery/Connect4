@@ -72,7 +72,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 				//player 2
 				userInput = getUserInput();
 				move = Integer.parseInt(userInput);
-				placeCounter('y',move);
+				placeCounter('y', move);
 				hasWon = false;
 				count = 0;
 				// check horizontal
@@ -107,10 +107,9 @@ public class MyConnectFour { //TODO bad class naming DONE
 				printBoard(); //TODO missing semi-colon DONE
 				if(hasWon){
 					win = true;
-					System.out.println("You Have Won!!!");
+					System.out.println("You Have Won!!!"); //TODO move this statement DONE
 				}
 			}
-			//System.out.println("You Have Won!!!"); //TODO move this statement DONE
 		}
 		
 	}
@@ -156,7 +155,6 @@ public class MyConnectFour { //TODO bad class naming DONE
 						board[i][position-1] = 'r'; //TODO array starts at 0 so need to do -1
 						placed = true; //TODO spelling error on true DONE
 					}
-					//TODO need an else statement here
 				}
 			}
 		}
