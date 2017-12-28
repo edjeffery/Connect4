@@ -42,7 +42,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 						}
 					}
 					else{
-						count = 0;
+						count = 0; //TODO count=0 in wrong place DONE
 					}
 				}
 				
@@ -58,7 +58,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 						}
 					}
 					else{
-						count = 0;
+						count = 0; //TODO count=0 in wrong place DONE
 					}
 				}
 				
@@ -85,10 +85,9 @@ public class MyConnectFour { //TODO bad class naming DONE
 							}
 						}
 						else{
-							
+							count = 0;
 						}
 					}
-					count = 0;
 				}
 				// check vertical 
 				count = 0;
@@ -101,10 +100,9 @@ public class MyConnectFour { //TODO bad class naming DONE
 							}
 						}
 						else{
-							 
+							count = 0; 
 						}
 					}
-					count = 0;
 				}
 				printBoard(); //TODO missing semi-colon DONE
 				if(hasWon){
