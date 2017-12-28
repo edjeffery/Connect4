@@ -7,7 +7,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 		new MyConnectFour();
 	}
 	
-	private BufferedReader input; //TODO Good practice to put variables at start of class
+	private BufferedReader input;
 	private char[][] board;
 	
 	public MyConnectFour(){
@@ -37,7 +37,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 				for(int j=0; j<board[i].length; j++){
 					if(board[i][j] == 'r'){
 						count = count + 1;
-						if(count > 4){
+						if(count >= 4){ //TODO >4 in a row DONE
 							hasWon = true;
 						}
 					}
