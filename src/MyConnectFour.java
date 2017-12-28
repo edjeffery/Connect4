@@ -49,9 +49,9 @@ public class MyConnectFour { //TODO bad class naming DONE
 			}
 			// check vertical 
 			count = 0;
-			for(int i=0; i<board.length; i++){ //TODO using row length rather than column DONE
-				for(int j=0; j<board[i].length; j++){ //TODO using column length rather than row DONE
-					if(board[i][j] == 'r'){ //TODO i and j the wrong way around DONE
+			for(int i=0; i<board[0].length; i++){ //TODO using row length rather than column DONE
+				for(int j=0; j<board.length; j++){ //TODO using column length rather than row DONE
+					if(board[j][i] == 'r'){ //TODO i and j the wrong way around DONE
 						count = count + 1;
 						if(count >= 4){ //TODO replace with >= DONE
 							hasWon = true;
@@ -120,14 +120,14 @@ public class MyConnectFour { //TODO bad class naming DONE
 			toReturn = input.readLine(); //TODO duplicate local variable TODO and missing semi-colon DONE
 		}
 		catch(Exception e){
-			
+			System.out.println(e.getMessage()); //TODO print exception to console DONE
 		}
 		return toReturn;
 	}
 	
 	private void printBoard(){
-		for(int i=0; i<board.length; i++){ //TODO semi-colon makes this first part a statement so 'i' is not recognised below DONE //TODO either less than length or less than or equal to length-1
-			for(int j=0; j<board[i].length-1; j++){ //TODO spelling error DONE
+		for(int i=0; i<board.length; i++){ //TODO semi-colon makes this first part a statement so 'i' is not recognised below DONE //TODO either less than length or less than or equal to length-1 DONE
+			for(int j=0; j<board[i].length; j++){ //TODO spelling error DONE. TODO Remove -1 from condition DONE
 				if(board[i][j] == 'r'){ //TODO i and j the wrong way around DONE
 					System.out.print("| r ");
 				}
@@ -140,7 +140,7 @@ public class MyConnectFour { //TODO bad class naming DONE
 			}
 			System.out.println("|");
 		}
-		System.out.println("  1   2   3   4   5   6  "); //TODO Remove the number 7 as not possible to place a piece there. DONE
+		System.out.println("  1   2   3   4   5   6   7  "); //TODO Remove the number 7 as not possible to place a piece there. DONE. MAYBE REVERSE?
 	}
 	
 	private void placeCounter(char player, int position){
