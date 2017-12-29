@@ -3,15 +3,14 @@ import java.io.InputStreamReader;
 
 public class MyConnectFour { //TODO bad class naming DONE
 	
-	public static void main(String[] args){
-		new MyConnectFour();
-	}
-	
 	private BufferedReader input;
 	private char[][] board;
+	boolean hasWon = false;
+	Board b;
+	View view = new View(board);
 	
-	public MyConnectFour(){
-		board = new char[6][7]; //TODO Check char 2D arrays
+	public MyConnectFour(char[][] board){
+		this.board = board;
 		input = new BufferedReader(new InputStreamReader(System.in));
 		playGame();
 	}
@@ -20,50 +19,19 @@ public class MyConnectFour { //TODO bad class naming DONE
 		System.out.println("Welcome to Connect 4");
 		System.out.println("There are 2 players red and yellow");
 		System.out.println("Player 1 is Red, Player 2 is Yellow");
-		System.out.println("To play the game type in the number of the column you want to drop you counter in"); //TODO missing semi-colon DONE
+		System.out.println("To play the game type in the number of the column you want to drop you counter in");
 		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
-		printBoard();
+		view.printBoard(board);
 		boolean win = false;
 		while(!win){
 			// player 1
-			String userInput = getUserInput(); //TODO no camel case DONE
+			String userInput = getUserInput();
 			int move = Integer.parseInt(userInput);
-			placeCounter('r', move); //TODO takes wrong data types
-			boolean hasWon = false;
-			int count = 0;
-			// check horizontal
-			for(int i=0; i<board.length; i++){ //TODO very similar to the block below - refactor? And also player 1 vs player 2 blocks
-				for(int j=0; j<board[i].length; j++){
-					if(board[i][j] == 'r'){
-						count = count + 1;
-						if(count >= 4){ //TODO >4 in a row DONE
-							hasWon = true;
-						}
-					}
-					else{
-						count = 0; //TODO count=0 in wrong place DONE
-					}
-				}
-				
-			}
-			// check vertical 
-			count = 0;
-			for(int i=0; i<board[0].length; i++){ //TODO using row length rather than column DONE
-				for(int j=0; j<board.length; j++){ //TODO using column length rather than row DONE
-					if(board[j][i] == 'r'){ //TODO i and j the wrong way around DONE
-						count = count + 1;
-						if(count >= 4){ //TODO replace with >= DONE
-							hasWon = true;
-						}
-					}
-					else{
-						count = 0; //TODO count=0 in wrong place DONE
-					}
-				}
-				
-			}
-			printBoard();
+			placeCounter('r', move);
+			checkWin('r');
+			view.printBoard(board);
+			//printBoard();
 			if(hasWon){
 				win = true;
 				System.out.println("You Have Won!!!");
@@ -74,42 +42,51 @@ public class MyConnectFour { //TODO bad class naming DONE
 				move = Integer.parseInt(userInput);
 				placeCounter('y', move);
 				hasWon = false;
-				count = 0;
-				// check horizontal
-				for(int i=0; i<board.length; i++){
-					for(int j=0; j<board[i].length; j++){
-						if(board[i][j] == 'y'){
-							count = count + 1;
-							if(count >= 4){
-								hasWon = true;
-							}
-						}
-						else{
-							count = 0;
-						}
-					}
-				}
-				// check vertical 
-				count = 0;
-				for(int i=0; i<board.length; i++){ //TODO using row length rather than column DONE
-					for(int j=0; j<board[i].length; j++){ //TODO using column length rather than row DONE
-						if(board[i][j] == 'y'){ //TODO i and j the wrong way around DONE
-							count = count + 1;
-							if(count >= 4){
-								hasWon = true;
-							}
-						}
-						else{
-							count = 0; 
-						}
-					}
-				}
-				printBoard(); //TODO missing semi-colon DONE
+				
+				checkWin('y');
+				view.printBoard(board);
 				if(hasWon){
 					win = true;
 					System.out.println("You Have Won!!!"); //TODO move this statement DONE
 				}
 			}
+		}
+		
+	}
+	
+	private void checkWin(char colour) {
+		
+		int count = 0;
+		// check horizontal
+		for(int i=0; i<board.length; i++){
+			for(int j=0; j<board[i].length; j++){
+				if(board[i][j] == colour){
+					count = count + 1;
+					if(count >= 4){ 
+						hasWon = true;
+					}
+				}
+				else{
+					count = 0;
+				}
+			}
+			
+		}
+		// check vertical 
+		count = 0;
+		for(int i=0; i<board[0].length; i++){
+			for(int j=0; j<board.length; j++){
+				if(board[j][i] == colour){
+					count = count + 1;
+					if(count >= 4){
+						hasWon = true;
+					}
+				}
+				else{
+					count = 0;
+				}
+			}
+			
 		}
 		
 	}
@@ -125,49 +102,16 @@ public class MyConnectFour { //TODO bad class naming DONE
 		return toReturn;
 	}
 	
-	private void printBoard(){
-		for(int i=0; i<board.length; i++){ //TODO semi-colon makes this first part a statement so 'i' is not recognised below DONE //TODO either less than length or less than or equal to length-1 DONE
-			for(int j=0; j<board[i].length; j++){ //TODO spelling error DONE. TODO Remove -1 from condition DONE
-				if(board[i][j] == 'r'){ //TODO i and j the wrong way around DONE
-					System.out.print("| r ");
-				}
-				else if(board[i][j] == 'y'){ //TODO i and j the wrong way around DONE
-					System.out.print("| y ");
-				}
-				else{
-					System.out.print("|   ");
-				}
-			}
-			System.out.println("|");
-		}
-		System.out.println("  1   2   3   4   5   6   7  "); //TODO Remove the number 7 as not possible to place a piece there. DONE. MAYBE REVERSE?
-	}
-	
 	private void placeCounter(char player, int position){
 		boolean placed = false;
-		if(player == 'r'){
-			for(int i=board.length-1; i>=0; i--){ //TODO should be i-- DONE
-				if(!placed){
-					if(board[i][position-1] == 'y'){ //TODO array starts at 0 so need to do -1 DONE
-						// skip
-					}
-					else if(board[i][position-1] != 'r'){ //TODO array starts at 0 so need to do -1
-						board[i][position-1] = 'r'; //TODO array starts at 0 so need to do -1
-						placed = true; //TODO spelling error on true DONE
-					}
+		for(int i=board.length-1; i>=0; i--){ 
+			if(!placed){
+				if(board[i][position-1] == 0){ 
+					board[i][position-1] = player;
+					placed = true; 
 				}
-			}
-		}
-		else{
-			for(int i=board.length-1; i>=0; i--){
-				if(!placed){
-					if(board[i][position-1] == 'r'){ //TODO incorrect data type DONE
-						// skip
-					}
-					else if(board[i][position-1] != 'y'){
-						board[i][position-1] = 'y'; //TODO missing semi-colon DONE
-						placed = true;
-					} 
+				else if(board[i][position-1] != 'r'){ 
+					// skip
 				}
 			}
 		}
