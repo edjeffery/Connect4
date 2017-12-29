@@ -1,7 +1,7 @@
 
 public class Board {
 	
-	private char[][] board;
+	public char[][] board;
 	private int row;
 	private int col;
 	
@@ -9,6 +9,21 @@ public class Board {
 		this.row = row;
 		this.col = col;
 		board = new char[row][col];
+	}
+	
+	public void placeCounter(char player, int position){
+		boolean placed = false;
+		for(int i=board.length-1; i>=0; i--){ 
+			if(!placed){
+				if(board[i][position-1] == 0){ 
+					board[i][position-1] = player;
+					placed = true; 
+				}
+				else { 
+					// skip
+				}
+			}
+		}
 	}
 	
 	public boolean checkWin(char colour, char[][] board) {
