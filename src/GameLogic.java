@@ -13,9 +13,12 @@ public class GameLogic {
 		System.out.println("To play the game type in the number of the column you want to drop you counter in");
 		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
-		
-		Board board = new Board(6, 7);
-		new MyConnectFour(board);
+		runGame();
 	}	
+	
+	private static void runGame() {
+		Board board = new Board(6, 7);
+		new Player(board);
+	}
 	
 }

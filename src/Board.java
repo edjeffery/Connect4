@@ -26,7 +26,7 @@ public class Board {
 		}
 	}
 	
-	public boolean checkWin(char colour, char[][] board) {
+	public boolean checkWin(char colour) {
 		
 		int count = 0;
 		// check horizontal

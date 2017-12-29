@@ -3,7 +3,7 @@ public class View {
 	
 	private char[][] board;
 	
-	public View (char[][] board) {
+	public View(char[][] board) {
 		this.board = board;
 	}
 	
