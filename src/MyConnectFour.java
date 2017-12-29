@@ -4,7 +4,7 @@ public class MyConnectFour {
 	private char[][] board;
 	boolean hasWon = false;
 	Board b;
-	View view = new View(board);
+	View view; 
 	UserInput uInput;
 	String userInput;
 	int move;
@@ -12,6 +12,7 @@ public class MyConnectFour {
 	public MyConnectFour(Board b){
 		this.b = b;
 		board = b.board;
+		view = new View(board);
 		uInput = new UserInput();
 		playGame();
 	}
@@ -29,7 +30,7 @@ public class MyConnectFour {
 			view.printBoard(board);
 			if(hasWon){
 				win = true;
-				System.out.println("You Have Won!!!");
+				printWinMessage();
 			}
 			else{
 				//player 2
@@ -42,7 +43,7 @@ public class MyConnectFour {
 				view.printBoard(board);
 				if(hasWon){
 					win = true;
-					System.out.println("You Have Won!!!");
+					printWinMessage();
 				}
 			}
 		}
@@ -89,6 +90,10 @@ public class MyConnectFour {
 	private int generateMove(String userInput) {
 		int move = Integer.parseInt(userInput);
 		return move;
+	}
+	
+	private void printWinMessage() {
+		System.out.println("You Have Won!!!");
 	}
 	
 }

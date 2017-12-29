@@ -2,7 +2,8 @@
 public class GameLogic {
 	
 	public enum Colour {
-		RED, YELLOW
+		RED,
+		YELLOW
 	}
 	
 	public static void main(String[] args){
