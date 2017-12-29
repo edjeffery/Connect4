@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class MyConnectFour { //TODO bad class naming DONE
+public class MyConnectFour {
 	
 	private BufferedReader input;
 	private char[][] board;
@@ -9,8 +9,9 @@ public class MyConnectFour { //TODO bad class naming DONE
 	Board b;
 	View view = new View(board);
 	
-	public MyConnectFour(char[][] board){
-		this.board = board;
+	public MyConnectFour(Board b){
+		this.b = b;
+		board = b.board;
 		input = new BufferedReader(new InputStreamReader(System.in));
 		playGame();
 	}
@@ -31,7 +32,6 @@ public class MyConnectFour { //TODO bad class naming DONE
 			placeCounter('r', move);
 			checkWin('r');
 			view.printBoard(board);
-			//printBoard();
 			if(hasWon){
 				win = true;
 				System.out.println("You Have Won!!!");
