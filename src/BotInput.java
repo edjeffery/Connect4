@@ -18,13 +18,24 @@ public class BotInput {
 		return r; 
 	}
 	
-	private int getBestMove(char[][] board, char colour) {
-		for(int i = 0; i < board[0].length; i++){
+	public String getBestMove(char[][] board, char colour) {
+		int[] allScores = new int[7];
+		int bestScore = 0;
+		int bestMove = 4;
+		for (int i = 1; i <= board[0].length; i++){
 			Board testBoard = new Board(board);
-			//char[][] botBoard = testBoard.getBoard();
 			testBoard.placeCounter(colour, i);
+			int maxScore = testBoard.checkCount(colour);
+			System.out.println(maxScore);
+			allScores[i-1] = maxScore;
 		}
-		return 0;
+		for (int j = 0; j < allScores.length; j++) {
+			if (allScores[j] > bestScore) {
+				bestMove = j;
+			}
+		}
+		System.out.println("Best move = " + bestMove);
+		return String.valueOf(bestMove);
 	}
 	
 }
