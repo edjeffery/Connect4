@@ -1,22 +1,17 @@
 
 public class GameLogic {
 	
-	public enum Colour {
+	// Not sure how to use enum yet
+	/*public enum Colour {
 		RED,
 		YELLOW
-	}
+	}*/ 
 	
 	boolean hasWon = false;
-	String ui;
+	String c;
 	UserInput uInput;
 	Player player;
 	
-	public void test() {
-		while(!hasWon) {
-			ui = uInput.getUserInput();
-			player
-		}
-	}
 	
 	public static void main(String[] args){
 		System.out.println("Welcome to Connect 4");
@@ -29,8 +24,32 @@ public class GameLogic {
 	}	
 	
 	private static void runGame() {
-		Board board = new Board(6, 7);
-		new Player(board);
+		Board board = new Board(6, 7, 4);
+		Player player = new Player(board);
+		UserInput uInput = new UserInput();
+		String c;
+		char[] colours = {'r', 'y'};
+		char colour = colours[0];
+		int i = 0;
+		
+		boolean win = false;
+		while(!win){
+			colour = colours[i % 2];
+			
+			c = uInput.getUserInput();
+			player.playGame(colour, c);
+			win = player.hasWon();
+			if (win) {
+				break;
+			}
+			i++;
+		}
+		System.out.println("Player " + colour + " has won!!!");
+		return;
 	}
+	
+	/*public void printWinMessage() {
+		System.out.println("You Have Won!!!");
+	}*/
 	
 }
