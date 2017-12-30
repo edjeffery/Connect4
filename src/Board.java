@@ -13,6 +13,10 @@ public class Board {
 		board = new char[row][col];
 	}
 	
+	public Board (char[][] board) {
+		this.board = board;
+	}
+	
 	public void placeCounter(char player, int position){
 		boolean placed = false;
 		for(int i=board.length-1; i>=0; i--){ 

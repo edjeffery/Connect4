@@ -11,6 +11,9 @@ public class GameLogic {
 	String c;
 	UserInput uInput;
 	Player player;
+	private static final int ROWS = 6;
+	private static final int COLS = 7;
+	private static final int N = 4;
 	
 	
 	public static void main(String[] args){
@@ -20,13 +23,14 @@ public class GameLogic {
 		System.out.println("To play the game type in the number of the column you want to drop you counter in");
 		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
-		runGame();
+		runGame(ROWS, COLS, N);
 	}	
 	
-	private static void runGame() {
-		Board board = new Board(6, 7, 4);
+	private static void runGame(int rows, int cols, int n) {
+		Board board = new Board(rows, cols, n);
 		Player player = new Player(board);
 		UserInput uInput = new UserInput();
+		BotInput botInput = new BotInput();
 		String c;
 		char[] colours = {'r', 'y'};
 		char colour = colours[0];
@@ -35,8 +39,12 @@ public class GameLogic {
 		boolean win = false;
 		while(!win){
 			colour = colours[i % 2];
-			
-			c = uInput.getUserInput();
+			if (colour % 2 == 0) {
+				c = uInput.getUserInput();
+			}
+			else {
+				c = botInput.getBotInput(1, cols);
+			}
 			player.playGame(colour, c);
 			win = player.hasWon();
 			if (win) {
