@@ -6,6 +6,18 @@ public class GameLogic {
 		YELLOW
 	}
 	
+	boolean hasWon = false;
+	String ui;
+	UserInput uInput;
+	Player player;
+	
+	public void test() {
+		while(!hasWon) {
+			ui = uInput.getUserInput();
+			player
+		}
+	}
+	
 	public static void main(String[] args){
 		System.out.println("Welcome to Connect 4");
 		System.out.println("There are 2 players red and yellow");

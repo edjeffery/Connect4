@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 public class UserInput {
 
 	private BufferedReader input;
+	Board b;
 	
 	public UserInput() {
 		input = new BufferedReader(new InputStreamReader(System.in));
@@ -11,29 +12,27 @@ public class UserInput {
 	
 	public String getUserInput(){
 		String toReturn = null;
-		try{			
+		try{
 			toReturn = input.readLine(); 
+			/*do {
+				System.out.printf("Enter a column number: ");
+				toReturn = input.readLine(); 
+			} while (!isValidInput(toReturn));*/
 		}
 		catch(Exception e){
-			System.out.println(e.getMessage()); 
+			System.out.println("" + e); // Printing a null pointer error message each time?
 		}
 		return toReturn;
 	}
 	
-	public String validateInput(String input) {
-		boolean validated = false;
-		while(!validated) {
-			if (input.length() == 0) {
-				System.out.println("Please enter a move.");
-			}
-			else if (input.length() > 1) {
-				System.out.println("Please enter a one digit number.");
-			}
-			else {
-				validated = true;
+	public boolean isValidInput(String input) {
+		int range = b.getCol();
+		for (int i = 1; i <= range; i++) {
+			if (i == Integer.parseInt(input)) {
+				return true;
 			}
 		}
-		return input;
+		return false;
 	}
 	
 }
