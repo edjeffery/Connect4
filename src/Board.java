@@ -1,4 +1,10 @@
 
+/**
+ * Class for dealing with the board of the game
+ * @author edjeffery
+ *
+ * @version 1.0
+ */
 public class Board {
 	
 	public char[][] board;
@@ -6,6 +12,15 @@ public class Board {
 	private int col;
 	private int n;
 	
+	/**
+	 * Constructor
+	 * @param row	
+	 * 			Number of rows in the board
+	 * @param col
+	 * 			Number of columns in the board
+	 * @param n
+	 * 			Number of pieces in a row needed to win
+	 */
 	public Board (int row, int col, int n) {
 		this.row = row;
 		this.col = col;
@@ -13,13 +28,25 @@ public class Board {
 		board = new char[row][col];
 	}
 	
+	/**
+	 * Constructor 
+	 * @param board
+	 * 			2D array of Connect4/N board
+	 */
 	public Board (char[][] board) {
 		this.board = board;
 	}
 	
-	public void placeCounter(char player, int position){
+	/**
+	 * Method for placing counter into the board
+	 * @param player
+	 * 			Character identifying player's colour
+	 * @param position
+	 * 			Column in which counter should be placed
+	 */
+	public boolean placeCounter(char player, int position){
 		boolean placed = false;
-		for(int i=board.length-1; i>=0; i--){ 
+		for(int i = board.length - 1; i >= 0; i--){ 
 			if(!placed){
 				if(board[i][position-1] == 0){ 
 					board[i][position-1] = player;
@@ -29,6 +56,16 @@ public class Board {
 					// skip
 				}
 			}
+		}
+		return placed;
+	}
+	
+	private boolean isColumnFull(int column) {
+		if (board[0][column] != 0) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 	
@@ -70,7 +107,7 @@ public class Board {
 					count = 0;
 				}
 			}
-			
+			count = 0;
 		}
 		// check vertical 
 		count = 0;
@@ -86,7 +123,7 @@ public class Board {
 					count = 0;
 				}
 			}
-			
+			count = 0;
 		}
 		
 		//check down-right (bottom)

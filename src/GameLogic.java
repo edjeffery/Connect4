@@ -1,4 +1,9 @@
 
+/**
+ * Class for handling the running of Connect4/N
+ * @author edjeffery
+ *
+ */
 public class GameLogic {
 	
 	// Not sure how to use enum yet
@@ -15,7 +20,10 @@ public class GameLogic {
 	private static final int COLS = 7;
 	private static final int N = 4;
 	
-	
+	/**
+	 * Main method.
+	 * @param args
+	 */
 	public static void main(String[] args){
 		System.out.println("Welcome to Connect 4");
 		System.out.println("There are 2 players red and yellow");
@@ -26,6 +34,13 @@ public class GameLogic {
 		runGame(ROWS, COLS, N);
 	}	
 	
+	/**
+	 * Method for running the game
+	 * @param rows
+	 * 			
+	 * @param cols
+	 * @param n
+	 */
 	private static void runGame(int rows, int cols, int n) {
 		Board board = new Board(rows, cols, n);
 		Player player = new Player(board);
@@ -43,8 +58,6 @@ public class GameLogic {
 				c = uInput.getUserInput();
 			}
 			else {
-				//c = botInput.getBotInput(1, cols);
-				//BotInput bi = new BotInput();
 				c = botInput.getBestMove(board.getBoard(), colour); 
 			}
 			player.playGame(colour, c);
