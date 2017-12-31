@@ -33,121 +33,12 @@ public class Board {
 	}
 	
 	public boolean checkWin(char colour) {
-		
-		int count = 0;
-		// check horizontal
-		for(int i=0; i<board.length; i++){
-			for(int j=0; j<board[i].length; j++){
-				if(board[i][j] == colour){
-					count = count + 1;
-					if(count >= n){ 
-						return true;
-					}
-				}
-				else{
-					count = 0;
-				}
-			}
-			
+		if (checkCount(colour) >= n) {
+			return true;
 		}
-		// check vertical 
-		count = 0;
-		for(int i=0; i<board[0].length; i++){
-			for(int j=0; j<board.length; j++){
-				if(board[j][i] == colour){
-					count = count + 1;
-					if(count >= n){
-						return true;
-					}
-				}
-				else{
-					count = 0;
-				}
-			}
-			
+		else {
+			return false;
 		}
-		
-		//check down-right (bottom)
-		// 0 - - -
-		// 0 0 - -
-		// 0 0 0 -
-		// 0 0 0 0
-		for (int i = 0; i < board.length; i++) {
-			count = 0;
-			for (int j = i, k = 0; j < board.length && k < board[0].length; j++, k++) {
-				if (board[j][k] == colour) {
-					count = count + 1;
-					if(count >= n){
-						return true;
-					}
-				}
-				else {
-					count = 0;
-				}
-			}
-		}
-		
-		//check down-right (top)
-		// - 0 0 0
-		// - - 0 0
-		// - - - 0
-		// - - - -
-		for (int i = 1; i < board[0].length; i++) {
-			count = 0;
-			for (int j = 0, k = i; j < board.length && k < board[0].length; j++, k++) {
-				if (board[j][k] == colour) {
-					count = count + 1;
-					if(count >= n){
-						return true;
-					}
-				}
-				else {
-					count = 0;
-				}
-			}
-		}
-		
-		//check up-right (bottom)
-		// - - - 0
-		// - - 0 0
-		// - 0 0 0
-		// 0 0 0 0
-		for (int i = 0; i < board[0].length; i++) {
-			count = 0;
-			for (int j = board.length - 1, k = i; j >= 0 && k < board[0].length; j--, k++) {
-				if (board[j][k] == colour) {
-					count = count + 1;
-					if(count >= n){
-						return true;
-					}
-				}
-				else {
-					count = 0;
-				}
-			}
-		}
-		
-		//check up-right (top)
-		// 0 0 0 -
-		// 0 0 - -
-		// 0 - - -
-		// - - - -
-		for (int i = board.length - 2; i >= 0; i--) {
-			count = 0;
-			for (int j = i, k = 0; j >= 0 && k < board[0].length; j--, k++) {
-				if (board[j][k] == colour) {
-					count = count + 1;
-					if(count >= n){
-						return true;
-					}
-				}
-				else {
-					count = 0;
-				}
-			}
-		}
-				
-		return false;
 	}
 	
 	public char[][] getBoard() {
