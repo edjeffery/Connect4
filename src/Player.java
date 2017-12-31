@@ -18,10 +18,10 @@ public class Player {
 		
 		move = generateMove(input);
 		// Testing a simple AI for the bot's move
-		if (player == 'y') {
+		/*if (player == 'y') {
 			BotInput bi = new BotInput();
-			move = generateMove(bi.getBestMove(board, player)); 
-		}
+			move = generateMove(bi.getBestMove(board, player)); //change player to choose whether bot is attacking or defensive
+		}*/
 		b.placeCounter(player, move);
 		hasWon = b.checkWin(player);
 		view.printBoard(board);

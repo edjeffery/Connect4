@@ -281,14 +281,4 @@ public class Board {
 		return max;
 	}
 	
-	public static boolean testEqual(int[] array) {
-	    for (int i = 1; i < array.length; i++) {
-	        if (array[i] != array[0]) {
-	            return false;
-	        }
-	    }
-	  
-	    return true;
-	}
-	
 }

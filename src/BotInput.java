@@ -48,11 +48,20 @@ public class BotInput {
 			}
 		}
 		// Return random number if all scores are equal
-		if (Board.testEqual(allScores)) {
+		if (testEqual(allScores)) {
 			return String.valueOf(getRandomNumber(1, 7));
 		}
 		System.out.println("Best move = " + bestMove);
 		return String.valueOf(bestMove);
+	}
+	
+	private boolean testEqual(int[] array) {
+	    for (int i = 1; i < array.length; i++) {
+	        if (array[i] != array[0]) {
+	            return false;
+	        }
+	    }
+	    return true;
 	}
 	
 }

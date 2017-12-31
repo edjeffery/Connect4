@@ -39,11 +39,13 @@ public class GameLogic {
 		boolean win = false;
 		while(!win){
 			colour = colours[i % 2];
-			if (colour % 2 == 0) {
+			if (i % 2 == 0) {
 				c = uInput.getUserInput();
 			}
 			else {
-				c = botInput.getBotInput(1, cols);
+				//c = botInput.getBotInput(1, cols);
+				//BotInput bi = new BotInput();
+				c = botInput.getBestMove(board.getBoard(), colour); 
 			}
 			player.playGame(colour, c);
 			win = player.hasWon();
