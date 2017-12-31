@@ -18,21 +18,38 @@ public class BotInput {
 		return r; 
 	}
 	
+	/**
+	 * Semi-random/clever move generator for looking one-move ahead.
+	 * @param board
+	 * @param colour
+	 * @return move in String format
+	 */
 	public String getBestMove(char[][] board, char colour) {
 		int[] allScores = new int[7];
 		int bestScore = 0;
 		int bestMove = 4;
 		for (int i = 1; i <= board[0].length; i++){
-			Board testBoard = new Board(board);
-			testBoard.placeCounter(colour, i);
-			int maxScore = testBoard.checkCount(colour);
+			char[][] tempBoard = new char[6][7];
+			for(int j=0; j<board.length; j++){
+				for(int k=0; k<board[0].length; k++){
+					tempBoard[j][k] = board[j][k];
+				}
+			}
+			Board botBoard = new Board(tempBoard);
+			botBoard.placeCounter(colour, i);
+			int maxScore = botBoard.checkCount(colour);
 			System.out.println(maxScore);
 			allScores[i-1] = maxScore;
 		}
 		for (int j = 0; j < allScores.length; j++) {
 			if (allScores[j] > bestScore) {
-				bestMove = j;
+				bestScore = allScores[j];
+				bestMove = j+1;
 			}
+		}
+		// Return random number if all scores are equal
+		if (Board.testEqual(allScores)) {
+			return String.valueOf(getRandomNumber(1, 7));
 		}
 		System.out.println("Best move = " + bestMove);
 		return String.valueOf(bestMove);
