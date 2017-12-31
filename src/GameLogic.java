@@ -37,9 +37,11 @@ public class GameLogic {
 	/**
 	 * Method for running the game
 	 * @param rows
-	 * 			
+	 * 			Number of rows of board
 	 * @param cols
+	 * 			Number of columns of board
 	 * @param n
+	 * 			Number of pieces in a row needed to win
 	 */
 	private static void runGame(int rows, int cols, int n) {
 		Board board = new Board(rows, cols, n);
