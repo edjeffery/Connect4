@@ -12,7 +12,6 @@ public class GameLogic {
 		YELLOW
 	}*/ 
 	
-	boolean hasWon = false;
 	String c;
 	UserInput uInput;
 	Player player;
@@ -54,6 +53,7 @@ public class GameLogic {
 		int i = 0;
 		
 		boolean win = false;
+		boolean draw = false;
 		while(!win){
 			colour = colours[i % 2];
 			if (i % 2 == 0) {
@@ -65,11 +65,16 @@ public class GameLogic {
 			player.playGame(colour, c);
 			win = player.hasWon();
 			if (win) {
+				System.out.println("Player " + colour + " has won!!!");
+				break;
+			}
+			if (draw) {
+				System.out.println("The game is a draw!!!");
 				break;
 			}
 			i++;
 		}
-		System.out.println("Player " + colour + " has won!!!");
+		//System.out.println("Player " + colour + " has won!!!");
 		return;
 	}
 	

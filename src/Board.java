@@ -68,12 +68,26 @@ public class Board {
 	 * @return True if full, false if not
 	 */
 	private boolean isColumnFull(int column) {
-		if (board[0][column] != 0) {
+		if (board[0][column-1] != 0) {
 			return true;
 		}
 		else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Method for checking whether game is a draw (i.e. all columns are full)
+	 * 
+	 * @return True if draw, false if not
+	 */
+	public boolean checkDraw() {
+		for (int i = 0; i < col; i++) {
+			if (!isColumnFull(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/**

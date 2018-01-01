@@ -9,6 +9,7 @@ public class Player {
 	
 	private char[][] board;
 	boolean hasWon = false;
+	boolean hasDrawn = false;
 	Board b;
 	View view; 
 	String userInput;
@@ -41,6 +42,7 @@ public class Player {
 			playGame(player, new UserInput().getUserInput());
 		}
 		hasWon = b.checkWin(player);
+		hasDrawn = b.checkDraw();
 		view.printBoard(board);
 	}
 	
@@ -51,6 +53,20 @@ public class Player {
 	 */
 	public boolean hasWon() {
 		if (hasWon) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Method for checking whether the game is drawn or not
+	 * 
+	 * @return True if drawn, false if not 
+	 */
+	public boolean hasDrawn() {
+		if (hasDrawn) {
 			return true;
 		}
 		else {
