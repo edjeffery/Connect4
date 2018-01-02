@@ -10,14 +10,12 @@ import java.io.InputStreamReader;
 public class UserInput {
 
 	private BufferedReader input;
-	Board b;
 	
 	/**
 	 * Constructor
 	 */
-	public UserInput(Board board) {
+	public UserInput() {
 		input = new BufferedReader(new InputStreamReader(System.in));
-		this.b = board;
 	}
 	
 	/**
@@ -48,7 +46,7 @@ public class UserInput {
 	 */
 	public boolean isValidInput(String input) {
 		int intInput = 0;
-		int range = b.getCol();
+		int range = GameLogic.COLS;
 
 		try {
 			intInput = Integer.parseInt(input);

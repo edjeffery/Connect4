@@ -21,10 +21,10 @@ public class Player {
 	 * @param b
 	 * 		Board object
 	 */
-	public Player(Board b){
+	public Player(Board b, int gameNum){
 		this.b = b;
 		board = b.board;
-		view = new View(board);
+		view = new View(board, gameNum);
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class Player {
 		placed = b.placeCounter(player, move);
 		if (!placed) {
 			System.out.println("A counter cannot be placed here. Please try again.");
-			playGame(player, new UserInput(b).getUserInput());
+			playGame(player, new UserInput().getUserInput());
 		}
 		hasWon = b.checkWin(player);
 		hasDrawn = b.checkDraw();

@@ -8,13 +8,15 @@
 public class View {
 	
 	private char[][] board;
+	private int gameNum;
 	
 	/**
 	 * Constructor
 	 * @param board
 	 */
-	public View(char[][] board) {
+	public View(char[][] board, int gameNum) {
 		this.board = board;
+		this.gameNum = gameNum;
 		printBoard(board);
 	}
 	
@@ -24,6 +26,7 @@ public class View {
 	 * 			2D array of Connect4/N board
 	 */
 	public void printBoard(char[][] board) {
+		System.out.println("### Game " + gameNum + " ###");
 		for(int i=0; i<board.length; i++){ 
 			for(int j=0; j<board[i].length; j++){
 				char c = board[i][j];

@@ -15,9 +15,9 @@ public class GameLogic {
 	String c;
 	UserInput uInput;
 	Player player;
-	private static final int ROWS = 6;
-	private static final int COLS = 7;
-	private static final int N = 4;
+	public static final int ROWS = 6;
+	public static final int COLS = 7;
+	//private static final int N = 4;
 	
 	/**
 	 * Main method.
@@ -28,8 +28,11 @@ public class GameLogic {
 		System.out.println("There are 2 players red and yellow");
 		System.out.println("Player 1 is Red, Player 2 is Yellow");
 		System.out.println("To play the game type in the number of the column you want to drop you counter in");
-		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
+		System.out.println("A player wins by connecting N counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
+		System.out.println("Please choose N: ");
+		String chosenN = new UserInput().getUserInput();
+		int N = Integer.parseInt(chosenN);
 		runGame(ROWS, COLS, N);
 	}	
 	
@@ -43,12 +46,14 @@ public class GameLogic {
 	 * 			Number of pieces in a row needed to win
 	 */
 	private static void runGame(int rows, int cols, int n) {
-		Board board = new Board(rows, cols, n);
-		Player player = new Player(board);
-		UserInput uInput = new UserInput(board);
+		Board board1 = new Board(rows, cols, n);
+		Board board2 = new Board(rows, cols, n);
+		Player player1 = new Player(board1, 1);
+		Player player2 = new Player(board2, 2);
+		UserInput uInput = new UserInput();
 		BotInput botInput = new BotInput();
 		String c;
-		char[] colours = {'r', 'y'};
+		char[] colours = {'r', 'y', 'b', 'g'};
 		char colour = colours[0];
 		int i = 0;
 		
@@ -56,15 +61,29 @@ public class GameLogic {
 		boolean draw = false;
 		while(!win){
 			colour = colours[i % colours.length];
-			if (i % colours.length == 0) {
+			if (colour == 'r') {
 				c = uInput.getUserInput();
+				player1.playGame('r', c);
+			}
+			else if (colour == 'b') {
+				c = uInput.getUserInput();
+				player2.playGame('b', c);
+			}
+			else if (colour == 'y') {
+				c = botInput.getBestMove(board1.getBoard(), colour); 
+				player1.playGame('y', c);
+			}
+			else if (colour == 'g') {
+				c = botInput.getBestMove(board2.getBoard(), colour);
+				player2.playGame('g', c);
 			}
 			else {
-				c = botInput.getBestMove(board.getBoard(), colour); 
+				// do nothing
 			}
-			player.playGame(colour, c);
-			win = player.hasWon();
-			draw = player.hasDrawn();
+			
+			//player.playGame(colour, c);
+			win = player1.hasWon();
+			draw = player1.hasDrawn();
 			if (win) {
 				System.out.println("Player " + colour + " has won!!!");
 			}
