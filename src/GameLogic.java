@@ -55,8 +55,8 @@ public class GameLogic {
 		boolean win = false;
 		boolean draw = false;
 		while(!win){
-			colour = colours[i % 2];
-			if (i % 2 == 0) {
+			colour = colours[i % colours.length];
+			if (i % colours.length == 0) {
 				c = uInput.getUserInput();
 			}
 			else {
@@ -65,13 +65,15 @@ public class GameLogic {
 			player.playGame(colour, c);
 			win = player.hasWon();
 			draw = player.hasDrawn();
+			if (win) {
+				System.out.println("Player " + colour + " has won!!!");
+			}
 			if (draw) {
 				System.out.println("The game is a draw!!!");
 				break;
 			}
 			i++;
 		}
-		System.out.println("Player " + colour + " has won!!!");
 		return;
 	}
 	
