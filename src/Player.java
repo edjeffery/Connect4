@@ -39,7 +39,7 @@ public class Player {
 		placed = b.placeCounter(player, move);
 		if (!placed) {
 			System.out.println("A counter cannot be placed here. Please try again.");
-			playGame(player, new UserInput().getUserInput());
+			playGame(player, new UserInput(b).getUserInput());
 		}
 		hasWon = b.checkWin(player);
 		hasDrawn = b.checkDraw();

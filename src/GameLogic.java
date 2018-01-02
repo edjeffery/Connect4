@@ -45,7 +45,7 @@ public class GameLogic {
 	private static void runGame(int rows, int cols, int n) {
 		Board board = new Board(rows, cols, n);
 		Player player = new Player(board);
-		UserInput uInput = new UserInput();
+		UserInput uInput = new UserInput(board);
 		BotInput botInput = new BotInput();
 		String c;
 		char[] colours = {'r', 'y'};

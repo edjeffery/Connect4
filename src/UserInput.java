@@ -15,8 +15,9 @@ public class UserInput {
 	/**
 	 * Constructor
 	 */
-	public UserInput() {
+	public UserInput(Board board) {
 		input = new BufferedReader(new InputStreamReader(System.in));
+		this.b = board;
 	}
 	
 	/**
@@ -26,16 +27,15 @@ public class UserInput {
 	 */
 	public String getUserInput(){
 		String toReturn = null;
-		try{
-			toReturn = input.readLine(); 
-			/*do {
-				System.out.printf("Enter a column number: ");
-				toReturn = input.readLine(); 
-			} while (!isValidInput(toReturn));*/
+		try {
+			do {
+				System.out.println("Enter a column number: ");
+				toReturn = input.readLine();
+			} while (!isValidInput(toReturn));
+		} catch(Exception e){
+			System.out.println("" + e);
 		}
-		catch(Exception e){
-			System.out.println("" + e); // Printing a null pointer error message each time?
-		}
+		
 		return toReturn;
 	}
 	
@@ -47,9 +47,18 @@ public class UserInput {
 	 * @return True if valid, false if not
 	 */
 	public boolean isValidInput(String input) {
+		int intInput = 0;
 		int range = b.getCol();
+
+		try {
+			intInput = Integer.parseInt(input);
+		} catch (Exception e) {
+			System.out.println("Input is not valid. Please try again.");
+			return false;
+		}
+		
 		for (int i = 1; i <= range; i++) {
-			if (i == Integer.parseInt(input)) {
+			if (i == intInput) {
 				return true;
 			}
 		}

@@ -68,7 +68,7 @@ public class Board {
 	 * @return True if full, false if not
 	 */
 	private boolean isColumnFull(int column) {
-		if (board[0][column-1] != 0) {
+		if (board[0][column] != 0) {
 			return true;
 		}
 		else {
