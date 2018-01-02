@@ -64,17 +64,14 @@ public class GameLogic {
 			}
 			player.playGame(colour, c);
 			win = player.hasWon();
-			if (win) {
-				System.out.println("Player " + colour + " has won!!!");
-				break;
-			}
+			draw = player.hasDrawn();
 			if (draw) {
 				System.out.println("The game is a draw!!!");
 				break;
 			}
 			i++;
 		}
-		//System.out.println("Player " + colour + " has won!!!");
+		System.out.println("Player " + colour + " has won!!!");
 		return;
 	}
 	
