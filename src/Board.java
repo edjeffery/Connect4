@@ -8,7 +8,7 @@
  */
 public class Board {
 	
-	public char[][] board;
+	private char[][] board;
 	private int row;
 	private int col;
 	private int n;
