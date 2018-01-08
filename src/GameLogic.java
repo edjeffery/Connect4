@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Class for handling the running of Connect4/N
@@ -7,11 +8,12 @@
 public class GameLogic {
 	
 	String c;
-	UserInput uInput;
-	Player player;
-	private static final int ROWS = 6;
-	private static final int COLS = 7;
-	private static final int N = 4;
+	//User user;
+	//Bot bot;
+	ArrayList<> = new ArrayList<>();
+	public static final int ROWS = 6;
+	public static final int COLS = 7;
+	public static final int N = 4;
 	
 	/**
 	 * Main method
@@ -38,11 +40,13 @@ public class GameLogic {
 	 */
 	private static void runGame(int rows, int cols, int n) {
 		Board board = new Board(rows, cols, n);
-		Player player = new Player(board);
-		UserInput uInput = new UserInput(board);
-		BotInput botInput = new BotInput();
+		//Player player = new Player(board);
+		View view;
+		User user = new User('r');
+		Bot bot = new Bot('y');
 		String c;
-		char[] colours = {'r', 'y'}; //Change to array list of player objects
+		int move;
+		char[] colours = {'r', 'y'}; // Change to array list of player objects
 		char colour = colours[0];
 		int i = 0;
 		
@@ -51,14 +55,16 @@ public class GameLogic {
 		while(!win){
 			colour = colours[i % colours.length];
 			if (i % colours.length == 0) {
-				c = uInput.getUserInput();
+				move = user.getNextMove(board);
 			}
 			else {
-				c = botInput.getBestMove(board.getBoard(), colour); 
+				move = bot.getNextMove(board); 
 			}
-			player.playGame(colour, c);
-			win = player.hasWon();
-			draw = player.hasDrawn();
+			board.placeCounter(colour, move);
+			view.printBoard(board.getBoard());
+			//playGame(colour, c);
+			win = board.checkWin(colour);
+			draw = board.checkDraw();
 			if (win) {
 				System.out.println("Player " + colour + " has won!!!");
 			}
@@ -71,8 +77,23 @@ public class GameLogic {
 		return;
 	}
 	
-	/*public void printWinMessage() {
-		System.out.println("You Have Won!!!");
-	}*/
+	/**
+	 * Method for playing a move in the game
+	 * @param player
+	 * 			Character identifying player's colour
+	 * @param input
+	 * 			Move in String format
+	 */
+	public void playGame(char player, String input){
+		move = generateMove(input);
+		placed = b.placeCounter(player, move);
+		if (!placed) {
+			System.out.println("A counter cannot be placed here. Please try again.");
+			playGame(player, new UserInput(b).getUserInput());
+		}
+		hasWon = b.checkWin(player);
+		hasDrawn = b.checkDraw();
+		view.printBoard(board);
+	}
 	
 }

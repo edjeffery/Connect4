@@ -2,22 +2,34 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * Class for handling user input from command line
+ * Class for handling a user
  * @author edjeffery
  *
  * @version 1.0
  */
-public class UserInput {
+public class User extends Player {
 
 	private BufferedReader input;
-	Board b;
 	
 	/**
 	 * Constructor
 	 */
-	public UserInput(Board board) {
+	public User(char colour) {
+		super(colour);
 		input = new BufferedReader(new InputStreamReader(System.in));
-		this.b = board;
+	}
+	
+	/**
+	 * Method for generating a proper move from input
+	 * @param Board
+	 * 			Board object - not used in User
+	 * 
+	 * @return Move in integer format
+	 */
+	@Override
+	public int getNextMove(Board board) { // Does this need to take Board as an argument?
+		int move = Integer.parseInt(getUserInput());
+		return move;
 	}
 	
 	/**
@@ -48,7 +60,7 @@ public class UserInput {
 	 */
 	public boolean isValidInput(String input) {
 		int intInput = 0;
-		int range = b.getCol();
+		int range = GameLogic.COLS;
 
 		try {
 			intInput = Integer.parseInt(input);
