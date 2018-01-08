@@ -8,7 +8,7 @@
  */
 public abstract class Player {
 	
-	char colour;
+	protected char colour;
 	
 	/**
 	 * Constructor. Sets the player's colour.
