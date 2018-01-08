@@ -1,9 +1,10 @@
 
 /**
  * Class for handling output to console
+ * 
  * @author edjeffery
- *
  * @version 1.0
+ * @release 2018-01-08
  */
 public class View {
 	
@@ -13,8 +14,8 @@ public class View {
 	 * Constructor
 	 * @param board
 	 */
-	public View(char[][] board) {
-		this.board = board;
+	public View(Board b) {
+		this.board = b.getBoard();
 		printBoard(board);
 	}
 	

@@ -2,9 +2,11 @@ import java.util.Random;
 
 /**
  * Class for generating a bot (instead of a user)
+ * 
  * @author edjeffery
- *
  * @version 1.0
+ * @release 2018-01-08
+ * @see Player.java
  */
 public class Bot extends Player {
 	
@@ -14,6 +16,7 @@ public class Bot extends Player {
 	 * Constructor
 	 */
 	public Bot(char colour) {
+		// Use the super constructor to set the colour
 		super(colour);
 		random = new Random();
 	}
@@ -76,7 +79,6 @@ public class Bot extends Player {
 			Board botBoard = new Board(tempBoard);
 			botBoard.placeCounter(colour, i);
 			int maxScore = botBoard.checkCount(colour);
-			//System.out.println(maxScore);
 			allScores[i-1] = maxScore;
 		}
 		
@@ -92,7 +94,6 @@ public class Bot extends Player {
 		if (testEqual(allScores)) {
 			return getRandomNumber(1, 7);
 		}
-		//System.out.println("Best move = " + bestMove);
 		return bestMove;
 	}
 	

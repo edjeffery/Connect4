@@ -1,74 +1,40 @@
 
 /**
  * Abstract class for handling player functionality
- * @author edjeffery
  * 
+ * @author edjeffery
  * @version 1.0
+ * @release 2018-01-08
  */
 public abstract class Player {
 	
-	//private char[][] board;
-	//boolean hasWon = false;
-	//boolean hasDrawn = false;
-	//Board b;
-	//View view; 
-	//String userInput;
-	//int move;
-	//boolean placed;
 	char colour;
 	
 	/**
 	 * Constructor
-	 * @param b
-	 * 		Board object
+	 * @param colour
+	 * 			Colour (ID) of player
 	 */
 	public Player(char colour){
 		this.colour = colour;
-		//this.b = b;
-		//board = b.board;
-		//view = new View(board);
 	}
 	
 	/**
 	 * Abstract method 
 	 * @param board
+	 * 			Board object
 	 * 
 	 * @return Move in integer form
 	 */
 	public abstract int getNextMove(Board board);
 	
-	
-	/*
-	*//**
-	 * Method for checking whether player has won or not
+	/**
+	 * Accessor
 	 * 
-	 * @return True if won, false if not 
-	 *//*
-	public boolean hasWon() {
-		if (hasWon) {
-			return true;
-		}
-		else {
-			return false;
-		}
+	 * @return Colour of player
+	 */
+	public char getColour() {
+		return colour;
 	}
-	
-	*//**
-	 * Method for checking whether the game is drawn or not
-	 * 
-	 * @return True if drawn, false if not 
-	 *//*
-	public boolean hasDrawn() {
-		if (hasDrawn) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	
-	*/
-	
-
 	
 }

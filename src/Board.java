@@ -1,9 +1,10 @@
 
 /**
  * Class for dealing with the board of the game
+ * 
  * @author edjeffery
- *
  * @version 1.0
+ * @release 2018-01-08
  */
 public class Board {
 	

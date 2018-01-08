@@ -3,9 +3,11 @@ import java.io.InputStreamReader;
 
 /**
  * Class for handling a user
+ * 
  * @author edjeffery
- *
  * @version 1.0
+ * @release 2018-01-08
+ * @see Player.java
  */
 public class User extends Player {
 
@@ -15,6 +17,7 @@ public class User extends Player {
 	 * Constructor
 	 */
 	public User(char colour) {
+		// Use the super constructor to set the colour
 		super(colour);
 		input = new BufferedReader(new InputStreamReader(System.in));
 	}
@@ -27,7 +30,7 @@ public class User extends Player {
 	 * @return Move in integer format
 	 */
 	@Override
-	public int getNextMove(Board board) { // Does this need to take Board as an argument?
+	public int getNextMove(Board board) {
 		int move = Integer.parseInt(getUserInput());
 		return move;
 	}
