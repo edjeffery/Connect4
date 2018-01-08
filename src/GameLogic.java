@@ -48,7 +48,7 @@ public class GameLogic {
 		UserInput uInput = new UserInput(board);
 		BotInput botInput = new BotInput();
 		String c;
-		char[] colours = {'r', 'y'};
+		char[] colours = {'r', 'y'}; //Change to array list of player objects
 		char colour = colours[0];
 		int i = 0;
 		
