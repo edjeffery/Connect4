@@ -6,12 +6,6 @@
  */
 public class GameLogic {
 	
-	// Not sure how to use enum yet
-	/*public enum Colour {
-		RED,
-		YELLOW
-	}*/ 
-	
 	String c;
 	UserInput uInput;
 	Player player;
@@ -20,7 +14,7 @@ public class GameLogic {
 	private static final int N = 4;
 	
 	/**
-	 * Main method.
+	 * Main method
 	 * @param args
 	 */
 	public static void main(String[] args){
