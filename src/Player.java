@@ -11,7 +11,7 @@ public abstract class Player {
 	char colour;
 	
 	/**
-	 * Constructor
+	 * Constructor. Sets the player's colour.
 	 * @param colour
 	 * 			Colour (ID) of player
 	 */

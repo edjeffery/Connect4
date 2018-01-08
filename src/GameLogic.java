@@ -17,7 +17,7 @@ public class GameLogic {
 	 * Main method
 	 * @param args
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		System.out.println("Welcome to Connect 4");
 		System.out.println("There are 2 players red and yellow");
 		System.out.println("Player 1 is Red, Player 2 is Yellow");

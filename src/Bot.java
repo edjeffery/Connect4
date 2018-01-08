@@ -13,26 +13,14 @@ public class Bot extends Player {
 	Random random;
 	
 	/**
-	 * Constructor
+	 * Constructor. Sets the bot's colour (ID) and instantiates the random number generator.
+	 * @param colour
+	 * 			Colour (ID) of bot
 	 */
 	public Bot(char colour) {
 		// Use the super constructor to set the colour
 		super(colour);
 		random = new Random();
-	}
-	
-	/**
-	 * Method for getting and returning a random move in column range
-	 * @param min
-	 * 			Lowest column number
-	 * @param max
-	 * 			Highest column number
-	 * 
-	 * @return Move in String format
-	 */
-	public String getBotInput(int min, int max) {
-		String s = String.valueOf(getRandomNumber(min, max));
-		return s;
 	}
 	
 	/**
@@ -69,7 +57,7 @@ public class Bot extends Player {
 		// Return move which gives greatest number of pieces in a row
 		// If all moves equal, return random move
 		for (int i = 1; i <= GameLogic.COLS; i++){
-			// Creates temporary board and stores the board given as an argument without reference
+			// Creates temporary board and stores the board given as an argument without memory address reference
 			char[][] tempBoard = new char[GameLogic.ROWS][GameLogic.COLS];
 			for(int j = 0; j < GameLogic.ROWS; j++){
 				for(int k = 0; k < GameLogic.COLS; k++){

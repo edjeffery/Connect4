@@ -25,16 +25,13 @@ public class View {
 	 * 			2D array of Connect4/N board
 	 */
 	public void printBoard(char[][] board) {
-		for(int i=0; i<board.length; i++){ 
-			for(int j=0; j<board[i].length; j++){
+		for(int i = 0; i < GameLogic.ROWS; i++) { 
+			for(int j = 0; j < GameLogic.COLS; j++) {
 				char c = board[i][j];
-				if(c != 0){ 
+				if(c != 0) { 
 					System.out.print("| " + c + " ");
 				}
-				/*else if(board[i][j] == 'y'){ 
-					System.out.print("| y ");
-				}*/
-				else{
+				else {
 					System.out.print("|   ");
 				}
 			}

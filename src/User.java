@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * Class for handling a user
+ * Class for handling a human user's input
  * 
  * @author edjeffery
  * @version 1.0
@@ -14,7 +14,9 @@ public class User extends Player {
 	private BufferedReader input;
 	
 	/**
-	 * Constructor
+	 * Constructor. Sets the user's colour (ID) and input stream.
+	 * @param colour
+	 * 			Colour (ID) of user
 	 */
 	public User(char colour) {
 		// Use the super constructor to set the colour
