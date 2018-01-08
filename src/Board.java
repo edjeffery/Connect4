@@ -45,7 +45,7 @@ public class Board {
 	 * @param position
 	 * 			Column in which counter should be placed
 	 */
-	public boolean placeCounter(char player, int position){
+	public boolean placeCounter(char player, int position) {
 		boolean placed = false;
 		for(int i = board.length - 1; i >= 0; i--){ 
 			if(!placed){

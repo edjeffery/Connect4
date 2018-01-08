@@ -15,7 +15,7 @@ public abstract class Player {
 	 * @param colour
 	 * 			Colour (ID) of player
 	 */
-	public Player(char colour){
+	public Player(char colour) {
 		this.colour = colour;
 	}
 	

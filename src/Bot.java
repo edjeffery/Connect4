@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /**
- * Class for generating a bot (instead of a user)
+ * Class for generating a bot (instead of a user).
  * 
  * @author edjeffery
  * @version 1.0
@@ -24,21 +24,9 @@ public class Bot extends Player {
 	}
 	
 	/**
-	 * Method for getting and returning a random integer in a range
-	 * @param min
-	 * 			Minimum value random number can be
-	 * @param max
-	 * 			Maximum value random number can be
-	 * 
-	 * @return Random integer
-	 */
-	private int getRandomNumber(int min, int max) {
-		int r = min + random.nextInt(max - min + 1);
-		return r; 
-	}
-	
-	/**
-	 * Semi-random/clever move generator for looking one-move ahead.
+	 * Semi-random/clever move generator that looks one-move ahead and tries
+	 * each of the possible moves to see which gives the highest number of
+	 * counters in a row.
 	 * @param board
 	 * 			2D array of Connect4/N board
 	 * @param colour
@@ -86,7 +74,24 @@ public class Bot extends Player {
 	}
 	
 	/**
-	 * Method for testing whether all values in integer array are equal
+	 * Method for getting and returning a random integer in a range
+	 * @param min
+	 * 			Minimum value random number can be
+	 * @param max
+	 * 			Maximum value random number can be
+	 * 
+	 * @return Random integer
+	 */
+	private int getRandomNumber(int min, int max) {
+		int randomNum = min + random.nextInt(max - min + 1);
+		return randomNum; 
+	}
+	
+	/**
+	 * Method for testing whether all values in integer array are equal.
+	 * This is used to test the allScores array which the bot uses when 
+	 * trying to work out the best next move. If all equal, then a random
+	 * number will be used instead.
 	 * @param array
 	 * 			Integer array to be tested
 	 * 
