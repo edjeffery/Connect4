@@ -9,24 +9,15 @@ import java.util.ArrayList;
  */
 public class GameLogic {
 	
-	public static final int ROWS = 6;
-	public static final int COLS = 7;
-	public static final int N = 4;
+	Board board;
+	ArrayList<Player> players;
+	View view;
 	
-	/**
-	 * Main method
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println("Welcome to Connect 4");
-		System.out.println("There are 2 players red and yellow");
-		System.out.println("Player 1 is Red, Player 2 is Yellow");
-		System.out.println("To play the game type in the number of the column you want to drop you counter in");
-		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
-		System.out.println("");
-		GameLogic gameLogic = new GameLogic();
-		gameLogic.runGame();
-	}	
+	public GameLogic(Board board, ArrayList<Player> players, View view) {
+		this.board = board;
+		this.players = players;
+		this.view = view;
+	}
 	
 	/**
 	 * Method for running the game
@@ -37,12 +28,7 @@ public class GameLogic {
 	 * @param n
 	 * 			Number of pieces in a row needed to win
 	 */
-	private void runGame() {
-		Board board = new Board(ROWS, COLS, N);
-		ArrayList<Player> players = new ArrayList<Player>();
-		View view = new View(board);
-		User user = new User('r');
-		Bot bot = new Bot('y');
+	public void runGame() {
 
 		char colour;
 		int move;
@@ -50,9 +36,6 @@ public class GameLogic {
 
 		boolean win = false;
 		boolean draw = false;
-		
-		players.add(user);
-		players.add(bot);
 
 		while(!win){
 			Player player = players.get(i % players.size());

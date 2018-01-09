@@ -25,8 +25,8 @@ public class View {
 	 * 			2D array of Connect4/N board
 	 */
 	public void printBoard(char[][] board) {
-		for(int i = 0; i < GameLogic.ROWS; i++) { 
-			for(int j = 0; j < GameLogic.COLS; j++) {
+		for(int i = 0; i < Main.ROWS; i++) { 
+			for(int j = 0; j < Main.COLS; j++) {
 				char c = board[i][j];
 				if(c != 0) { 
 					System.out.print("| " + c + " ");

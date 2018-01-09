@@ -65,7 +65,7 @@ public class User extends Player {
 	 */
 	public boolean isValidInput(String input) {
 		int intInput = 0;
-		int range = GameLogic.COLS;
+		int range = Main.COLS;
 
 		try {
 			intInput = Integer.parseInt(input);

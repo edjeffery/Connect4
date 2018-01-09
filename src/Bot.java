@@ -37,18 +37,18 @@ public class Bot extends Player {
 	@Override
 	public int getNextMove(Board board) {
 
-		int[] allScores = new int[GameLogic.COLS];
+		int[] allScores = new int[Main.COLS];
 		int bestScore = 0;
-		int bestMove = GameLogic.COLS / 2;
+		int bestMove = Main.COLS / 2;
 		
 		// For each move, simulate the move in a board
 		// Return move which gives greatest number of pieces in a row
 		// If all moves equal, return random move
-		for (int i = 1; i <= GameLogic.COLS; i++){
+		for (int i = 1; i <= Main.COLS; i++){
 			// Creates temporary board and stores the board given as an argument without memory address reference
-			char[][] tempBoard = new char[GameLogic.ROWS][GameLogic.COLS];
-			for(int j = 0; j < GameLogic.ROWS; j++){
-				for(int k = 0; k < GameLogic.COLS; k++){
+			char[][] tempBoard = new char[Main.ROWS][Main.COLS];
+			for(int j = 0; j < Main.ROWS; j++){
+				for(int k = 0; k < Main.COLS; k++){
 					tempBoard[j][k] = board.getBoard()[j][k];
 				}
 			}
