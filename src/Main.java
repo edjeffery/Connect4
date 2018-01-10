@@ -4,8 +4,12 @@ public class Main {
 	
 	public static final int ROWS = 6;
 	public static final int COLS = 7;
-	public static final int N = 4;
-
+	public static final int N = 4; // Number of counters needed in a row to win
+	
+	/**
+	 * Main method. Prints starting text, instantiates all necessary objects and injects them into GameLogic
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to Connect 4");
 		System.out.println("There are 2 players red and yellow");

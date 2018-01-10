@@ -1,6 +1,6 @@
 
 /**
- * Class for dealing with the board of the game
+ * Class for creating and editing a board for the game
  * 
  * @author edjeffery
  * @version 1.0
@@ -47,10 +47,10 @@ public class Board {
 	 */
 	public boolean placeCounter(char player, int position) {
 		boolean placed = false;
-		for(int i = board.length - 1; i >= 0; i--){ 
-			if(!placed){
-				if(board[i][position-1] == 0){ 
-					board[i][position-1] = player;
+		for (int i = board.length - 1; i >= 0; i--) { 
+			if (!placed) {
+				if (board[i][position - 1] == 0) { 
+					board[i][position - 1] = player;
 					placed = true; 
 				}
 				else { 
@@ -150,15 +150,15 @@ public class Board {
 		// 0 0 0 0
 		// - - - -
 		// - - - -
-		for(int i=0; i<board.length; i++){
-			for(int j=0; j<board[i].length; j++){
-				if(board[i][j] == colour){
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[i].length; j++) {
+				if (board[i][j] == colour) {
 					count = count + 1;
-					if(count >= max){ 
+					if (count >= max) { 
 						max = count;
 					}
 				}
-				else{
+				else {
 					count = 0;
 				}
 			}
@@ -169,16 +169,15 @@ public class Board {
 		// - 0 - -
 		// - 0 - -
 		// - 0 - -		
-		count = 0;
-		for(int i=0; i<board[0].length; i++){
-			for(int j=0; j<board.length; j++){
-				if(board[j][i] == colour){
+		for (int i = 0; i < board[0].length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (board[j][i] == colour) {
 					count = count + 1;
-					if(count >= max){ 
+					if (count >= max) { 
 						max = count;
 					}
 				}
-				else{
+				else {
 					count = 0;
 				}
 			}
@@ -195,7 +194,7 @@ public class Board {
 			for (int j = i, k = 0; j < board.length && k < board[0].length; j++, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if(count >= max){ 
+					if (count >= max) { 
 						max = count;
 					}
 				}
@@ -215,7 +214,7 @@ public class Board {
 			for (int j = 0, k = i; j < board.length && k < board[0].length; j++, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if(count >= max){ 
+					if (count >= max) { 
 						max = count;
 					}
 				}
@@ -235,7 +234,7 @@ public class Board {
 			for (int j = board.length - 1, k = i; j >= 0 && k < board[0].length; j--, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if(count >= max){ 
+					if (count >= max) { 
 						max = count;
 					}
 				}
@@ -255,7 +254,7 @@ public class Board {
 			for (int j = i, k = 0; j >= 0 && k < board[0].length; j--, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if(count >= max){ 
+					if (count >= max) { 
 						max = count;
 					}
 				}
