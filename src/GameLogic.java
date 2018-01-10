@@ -13,6 +13,15 @@ public class GameLogic {
 	ArrayList<Player> players;
 	View view;
 	
+	/**
+	 * Constructor to set up objects needed to run the game
+	 * @param board
+	 * 			Board object
+	 * @param players
+	 * 			ArrayList of Player objects
+	 * @param view
+	 * 			View object
+	 */
 	public GameLogic(Board board, ArrayList<Player> players, View view) {
 		this.board = board;
 		this.players = players;

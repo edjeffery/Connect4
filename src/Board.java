@@ -142,9 +142,9 @@ public class Board {
 	 * @return Max. count of pieces in a row
 	 */
 	public int checkCount(char colour) {
-		
 		int count = 0;
-		int max = 0;
+		int maxCount = 0;
+		
 		// check horizontal
 		// - - - -
 		// 0 0 0 0
@@ -154,8 +154,8 @@ public class Board {
 			for (int j = 0; j < board[i].length; j++) {
 				if (board[i][j] == colour) {
 					count = count + 1;
-					if (count >= max) { 
-						max = count;
+					if (count >= maxCount) { 
+						maxCount = count;
 					}
 				}
 				else {
@@ -173,8 +173,8 @@ public class Board {
 			for (int j = 0; j < board.length; j++) {
 				if (board[j][i] == colour) {
 					count = count + 1;
-					if (count >= max) { 
-						max = count;
+					if (count >= maxCount) { 
+						maxCount = count;
 					}
 				}
 				else {
@@ -183,7 +183,6 @@ public class Board {
 			}
 			count = 0;
 		}
-		
 		//check down-right (bottom)
 		// 0 - - -
 		// 0 0 - -
@@ -191,11 +190,12 @@ public class Board {
 		// 0 0 0 0
 		for (int i = 0; i < board.length; i++) {
 			count = 0;
+			// Increment both j and k by 1 to move diagonally
 			for (int j = i, k = 0; j < board.length && k < board[0].length; j++, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if (count >= max) { 
-						max = count;
+					if (count >= maxCount) { 
+						maxCount = count;
 					}
 				}
 				else {
@@ -203,7 +203,6 @@ public class Board {
 				}
 			}
 		}
-		
 		//check down-right (top)
 		// - 0 0 0
 		// - - 0 0
@@ -214,8 +213,8 @@ public class Board {
 			for (int j = 0, k = i; j < board.length && k < board[0].length; j++, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if (count >= max) { 
-						max = count;
+					if (count >= maxCount) { 
+						maxCount = count;
 					}
 				}
 				else {
@@ -223,7 +222,6 @@ public class Board {
 				}
 			}
 		}
-		
 		//check up-right (bottom)
 		// - - - 0
 		// - - 0 0
@@ -234,8 +232,8 @@ public class Board {
 			for (int j = board.length - 1, k = i; j >= 0 && k < board[0].length; j--, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if (count >= max) { 
-						max = count;
+					if (count >= maxCount) { 
+						maxCount = count;
 					}
 				}
 				else {
@@ -243,7 +241,6 @@ public class Board {
 				}
 			}
 		}
-		
 		//check up-right (top)
 		// 0 0 0 -
 		// 0 0 - -
@@ -254,17 +251,16 @@ public class Board {
 			for (int j = i, k = 0; j >= 0 && k < board[0].length; j--, k++) {
 				if (board[j][k] == colour) {
 					count = count + 1;
-					if (count >= max) { 
-						max = count;
+					if (count >= maxCount) { 
+						maxCount = count;
 					}
 				}
 				else {
 					count = 0;
 				}
 			}
-		}
-				
-		return max;
+		}		
+		return maxCount;
 	}
 	
 }

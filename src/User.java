@@ -45,6 +45,7 @@ public class User extends Player {
 	public String getUserInput(){
 		String toReturn = null;
 		try {
+			// Loop until valid input is received
 			do {
 				System.out.println("Enter a column number: ");
 				toReturn = input.readLine();
