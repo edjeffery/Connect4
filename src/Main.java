@@ -3,8 +3,10 @@ import java.util.Scanner;
 
 public class Main {
 	
-	public static final int ROWS = 6;
+	public static final int ROWS = 6; //private and non-static
 	public static final int COLS = 7;
+	
+	Scanner scanner;
 	
 	/**
 	 * Main method. Prints starting text, instantiates all necessary objects and injects them into GameLogic
@@ -34,10 +36,12 @@ public class Main {
 		
 		GameLogic gameLogic = new GameLogic(board, players, view);
 		gameLogic.runGame();
+		
+		main.scanner.close();
 	}
 	
 	private int getUserN() {
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 		int N = 0;
 		do {
 			System.out.println("Please enter a number between 3 and 6 (inclusive): ");

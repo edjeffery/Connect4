@@ -36,19 +36,20 @@ public class Bot extends Player {
 	 */
 	@Override
 	public int getNextMove(Board board) {
-
-		int[] allScores = new int[Main.COLS];
+		int rows = board.getRow();
+		int cols = board.getCol();
+		int[] allScores = new int[cols];
 		int bestScore = 0;
-		int bestMove = Main.COLS / 2;
+		int bestMove = cols / 2; // Place counter in middle of board if something goes wrong
 		
 		// For each move, simulate the move in a board and store the 'score' of that move
 		// Return move which gives greatest number of pieces in a row
 		// If all moves equal, return random move
-		for (int i = 1; i <= Main.COLS; i++){
+		for (int i = 1; i <= cols; i++){
 			// Creates temporary board and stores the board given as an argument without memory address reference
-			char[][] tempBoard = new char[Main.ROWS][Main.COLS];
-			for(int j = 0; j < Main.ROWS; j++){
-				for(int k = 0; k < Main.COLS; k++){
+			char[][] tempBoard = new char[rows][cols];
+			for(int j = 0; j < rows; j++){
+				for(int k = 0; k < cols; k++){
 					tempBoard[j][k] = board.getBoard()[j][k];
 				}
 			}
