@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 	
 	public static final int ROWS = 6;
 	public static final int COLS = 7;
-	public static final int N = 4; // Number of counters needed in a row to win
+	//public static final int N = 4; // Number of counters needed in a row to win
 	
 	/**
 	 * Main method. Prints starting text, instantiates all necessary objects and injects them into GameLogic
@@ -18,6 +19,9 @@ public class Main {
 		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
 		
+		Main main = new Main();
+		int N = main.getUserN();
+		
 		Board board = new Board(ROWS, COLS, N);
 		ArrayList<Player> players = new ArrayList<Player>();
 		View view = new View(board);
@@ -29,6 +33,21 @@ public class Main {
 		
 		GameLogic gameLogic = new GameLogic(board, players, view);
 		gameLogic.runGame();
+	}
+	
+	private int getUserN() {
+		Scanner scanner = new Scanner(System.in);
+		int N = 0;
+		do {
+			System.out.println("Please enter a number between 3 and 6 (inclusive): ");
+			try {
+				N = scanner.nextInt();
+			} catch (Exception e) {
+				System.out.println("Invalid input. Please try again.");
+				scanner.next();
+			}
+		} while (N <= 2 || N >= 7);
+		return N;
 	}
 
 }
