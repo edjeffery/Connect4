@@ -48,7 +48,9 @@ public class GameLogic {
 		while(!win){
 			Player player = players.get(i % players.size());
 			colour = player.getColour();
-			move = player.getNextMove(board);
+			do {
+				move = player.getNextMove(board);
+			} while (board.isColumnFull(move));
 			board.placeCounter(colour, move);
 			view.printBoard(board.getBoard());
 			win = board.checkWin(colour);

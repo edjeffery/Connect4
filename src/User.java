@@ -27,7 +27,7 @@ public class User extends Player {
 	/**
 	 * Method for generating a proper move from input
 	 * @param Board
-	 * 			Board object - not used in User
+	 * 			Board object
 	 * 
 	 * @return Move in integer format
 	 */

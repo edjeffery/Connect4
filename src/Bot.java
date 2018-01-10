@@ -41,6 +41,7 @@ public class Bot extends Player {
 		int[] allScores = new int[cols];
 		int bestScore = 0;
 		int bestMove = cols / 2; // Place counter in middle of board if something goes wrong
+		int maxScore;
 		
 		// For each move, simulate the move in a board and store the 'score' of that move
 		// Return move which gives greatest number of pieces in a row
@@ -54,8 +55,15 @@ public class Bot extends Player {
 				}
 			}
 			Board botBoard = new Board(tempBoard);
-			botBoard.placeCounter(colour, i);
-			int maxScore = botBoard.checkCount(colour);
+			// If column full, set score for that move equal to 0. Else test move and record score.
+			if (botBoard.isColumnFull(i)) {
+				maxScore = 0;
+			}
+			else {
+				botBoard.placeCounter(colour, i);
+				maxScore = botBoard.checkCount(colour);
+			}
+			// Store the score
 			allScores[i-1] = maxScore;
 		}
 		
