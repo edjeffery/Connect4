@@ -41,7 +41,7 @@ public class Bot extends Player {
 		int bestScore = 0;
 		int bestMove = Main.COLS / 2;
 		
-		// For each move, simulate the move in a board
+		// For each move, simulate the move in a board and store the 'score' of that move
 		// Return move which gives greatest number of pieces in a row
 		// If all moves equal, return random move
 		for (int i = 1; i <= Main.COLS; i++){

@@ -52,7 +52,6 @@ public class User extends Player {
 		} catch(Exception e){
 			System.out.println("" + e);
 		}
-		
 		return toReturn;
 	}
 	
@@ -79,6 +78,7 @@ public class User extends Player {
 				return true;
 			}
 		}
+		System.out.println("Input is not valid. Please try again.");
 		return false;
 	}
 	

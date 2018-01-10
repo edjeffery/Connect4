@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Class for handling the running of Connect4/N
+ * Class for handling the Connect4/N game loop
  * 
  * @author edjeffery
  * @version 1.0
@@ -29,7 +29,6 @@ public class GameLogic {
 	 * 			Number of pieces in a row needed to win
 	 */
 	public void runGame() {
-
 		char colour;
 		int move;
 		int i = 0;
