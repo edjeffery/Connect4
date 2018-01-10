@@ -5,7 +5,6 @@ public class Main {
 	
 	public static final int ROWS = 6;
 	public static final int COLS = 7;
-	//public static final int N = 4; // Number of counters needed in a row to win
 	
 	/**
 	 * Main method. Prints starting text, instantiates all necessary objects and injects them into GameLogic
@@ -26,10 +25,12 @@ public class Main {
 		ArrayList<Player> players = new ArrayList<Player>();
 		View view = new View(board);
 		User user = new User('r');
-		Bot bot = new Bot('y');
+		Bot bot1 = new Bot('y');
+		Bot bot2 = new Bot('g');
 		
 		players.add(user);
-		players.add(bot);
+		players.add(bot1);
+		players.add(bot2);
 		
 		GameLogic gameLogic = new GameLogic(board, players, view);
 		gameLogic.runGame();
