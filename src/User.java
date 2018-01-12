@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
  * 
  * @author edjeffery
  * @version 1.0
- * @release 2018-01-08
+ * @release 2018-01-12
  * @see Player.java
  */
 public class User extends Player {

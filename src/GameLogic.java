@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * 
  * @author edjeffery
  * @version 1.0
- * @release 2018-01-08
+ * @release 2018-01-12
  */
 public class GameLogic {
 	

@@ -1,9 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main class from which game is run
+ * 
+ * @author edjeffery
+ * @version 1.0
+ * @release 2018-01-12
+ */
 public class Main {
 	
-	public static final int ROWS = 6; //private and non-static
+	public static final int ROWS = 6;
 	public static final int COLS = 7;
 	
 	Scanner scanner;
