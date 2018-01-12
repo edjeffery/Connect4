@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Main class from which game is run
@@ -14,8 +13,8 @@ public class Main {
 	public static final int ROWS = 6;
 	// Number of columns in the board
 	public static final int COLS = 7;
-	
-	Scanner scanner;
+	// Number of pieces needed in a row to win
+	public static final int N = 4;
 	
 	/**
 	 * Main method. Prints starting text, instantiates all necessary objects and injects them into GameLogic
@@ -29,44 +28,17 @@ public class Main {
 		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
 		
-		Main main = new Main();
-		int N = main.getUserN();
-		
 		Board board = new Board(ROWS, COLS, N);
 		ArrayList<Player> players = new ArrayList<Player>();
 		View view = new View(board);
 		User user = new User('r');
-		Bot bot1 = new Bot('y');
-		Bot bot2 = new Bot('g');
+		Bot bot = new Bot('y');
 		
 		players.add(user);
-		players.add(bot1);
-		players.add(bot2);
+		players.add(bot);
 		
 		GameLogic gameLogic = new GameLogic(board, players, view);
 		gameLogic.runGame();
-		
-		main.scanner.close();
-	}
-	
-	/**
-	 * Method for getting the ConnectN input from the user.
-	 * 
-	 * @return Integer N, which specifies the number of counters needed in a row to win
-	 */
-	private int getUserN() {
-		scanner = new Scanner(System.in);
-		int N = 0;
-		do {
-			System.out.println("Please enter a number between 3 and 6 (inclusive): ");
-			try {
-				N = scanner.nextInt();
-			} catch (Exception e) {
-				System.out.println("Invalid input. Please try again.");
-				scanner.next();
-			}
-		} while (N <= 2 || N >= 7);
-		return N;
 	}
 
 }
