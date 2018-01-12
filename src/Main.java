@@ -10,7 +10,9 @@ import java.util.Scanner;
  */
 public class Main {
 	
+	// Number of rows in the board
 	public static final int ROWS = 6;
+	// Number of columns in the board
 	public static final int COLS = 7;
 	
 	Scanner scanner;
@@ -47,6 +49,11 @@ public class Main {
 		main.scanner.close();
 	}
 	
+	/**
+	 * Method for getting the ConnectN input from the user.
+	 * 
+	 * @return Integer N, which specifies the number of counters needed in a row to win
+	 */
 	private int getUserN() {
 		scanner = new Scanner(System.in);
 		int N = 0;
