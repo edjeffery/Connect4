@@ -22,11 +22,11 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("Welcome to Connect 4");
-		System.out.println("There are 2 players red and yellow");
-		System.out.println("Player 1 is Red, Player 2 is Yellow");
-		System.out.println("To play the game type in the number of the column you want to drop you counter in");
-		System.out.println("A player wins by connecting 4 counters in a row - vertically, horizontally or diagonally");
+		System.out.println("Welcome to Connect N");
+		System.out.println("There are 3 players: red, yellow and green");
+		System.out.println("Player 1 is Red, Player 2 is Yellow and Player 3 is Green");
+		System.out.println("To play the game type in the number of the column you want to drop your counter in");
+		System.out.println("A player wins by connecting N counters in a row - vertically, horizontally or diagonally");
 		System.out.println("");
 		
 		Main main = new Main();
